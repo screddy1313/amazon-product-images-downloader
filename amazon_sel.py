@@ -8,7 +8,7 @@ class Amazon :
     def __init__(self) :
         self.item = None
         self.base_url = 'https://www.amazon.in' 
-        self.browser = webdriver.Chrome(executable_path='./../drivers/chromedriver.exe')
+        self.browser = webdriver.Chrome()
 
     def search_text(self, item) :
 
@@ -23,7 +23,7 @@ class Amazon :
         self.browser.get(self.base_url)
         search_bar = 'input#twotabsearchtextbox'
 
-        self.browser.find_element_by_css_selector(search_bar).send_keys(self.item + Keys.RETURN)
+        self.browser.find_element(By.CSS_SELECTOR, search_bar).send_keys(self.item + Keys.RETURN)
 
         page_src = self.browser.page_source
         
@@ -48,14 +48,3 @@ class Amazon :
             # close the browser instance
             self.browser.quit()
             return -1
-            
-            
-            
-    
-    
-        
-
-
-
-
-
