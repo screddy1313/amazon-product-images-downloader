@@ -66,16 +66,8 @@ def input_details():
         # without product name, we cannot scrape anything...
         return -1
 
-    num_items = input(
-        'Enter the number of products to be processed (default: 100)')
     num_pages = input(
         'Enter the number of pages to be traversed. (default: 10)')
-
-    if not num_items:
-        num_items = 100  # default
-
-    else:
-        num_items = int(num_items)   # string to int
 
     if not num_pages:
         num_pages = 10  # default
@@ -86,12 +78,11 @@ def input_details():
     print('-' * 50)
     print('Entered Details : \n')
     print(f'Item  :\t {item_name}')
-    print(f'Number of items to be processed  :\t {num_items}')
     print(f'Number of pages to be processed  :\t {num_pages}')
 
     print('-' * 50)
 
-    return item_name, num_items, num_pages
+    return item_name, num_pages
 
 
 def print_details(count, pages, completed=False):
@@ -124,17 +115,16 @@ def main():
     if details == -1:
         sys.exit('Exiting Since product name is not entered !!')
 
-    item_name, num_prods, num_pages = details[0], details[1], details[2]
-
+    item_name, num_pages = details[0], details[1]
+    
     ama_search = Amazon()  # instantiate amazon search class
     pg_src = ama_search.search_text(item_name)
 
-    count_products = 0
-    pages_traversed = 1   # already 1 page is opened !!!
+    pages_traversed = 0
 
     # break when required products count is reached or req of pages are traversed !!!
 
-    while (count_products < num_prods) and (pages_traversed < num_pages):
+    while (pages_traversed < num_pages):
 
         html = BeautifulSoup(pg_src, 'lxml')
         # extract the actual product divs
