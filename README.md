@@ -20,6 +20,22 @@ Make sure that images folder exists in working directory.
 - python 3.6
 - requests : to download the image from the url
 
+#### Install
+```
+// Linux
+python3 -V // Ensure 3.6+
+pip3 -V // Ensure... pip3
+
+pip3 install selenium
+pip3 install webdriver_manager
+pip3 install requests
+pip3 install beautifulsoup4
+pip3 install lxml
+
+// Linux only
+sudo apt install chromium-chromedriver
+```
+
 ## Usage : 
 Make sure all the above mentioned libraries are installed. </br>
 python product_images_downloader.py  ( look the output images directory to get the idea !!)
