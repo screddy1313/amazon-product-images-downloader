@@ -48,7 +48,7 @@ def download_img(img_url, uid):
     # it will store elements in the images folder. make sure it already exists !!!
     img = requests.get(img_url).content
 
-    with open(f'images/{uid}.jpg', 'wb') as f:
+    with open(f'output/{uid}.jpg', 'wb') as f:
         f.write(img)
 
 
@@ -129,6 +129,8 @@ def main():
         html = BeautifulSoup(pg_src, 'lxml')
         # extract the actual product divs
         product_divs = extract_product_divs(html)
+
+
 
         # will download all the images of extracted products
         extract_images(product_divs)
