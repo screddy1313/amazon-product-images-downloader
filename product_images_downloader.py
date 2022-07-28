@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 from amazon_sel import Amazon
 import requests
-
 import sys
 
 # required functions
@@ -121,6 +120,7 @@ def main():
     pg_src = ama_search.search_text(item_name)
 
     pages_traversed = 0
+    count_products = 0
 
     # break when required products count is reached or req of pages are traversed !!!
 
