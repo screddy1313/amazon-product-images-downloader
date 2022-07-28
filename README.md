@@ -40,6 +40,20 @@ sudo apt install chromium-chromedriver
 Make sure all the above mentioned libraries are installed. </br>
 python product_images_downloader.py  ( look the output images directory to get the idea !!)
 
+## Debugging :
+If you're a filthy degenerate hiding behind a proxy and the amazon captcha shows up, run the following
+
+> $ python3
+```
+from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get('https://www.amazon.in')
+// Solve the captcha
+exit()
+// Close the browser
+```
+
+That should stave off the bots for a few extra runs.
 ## Things to do :
 - Eliminate the images of sponsored products.
 - Extracting all the details of product (name, price, ratings) and storing in csv. 
