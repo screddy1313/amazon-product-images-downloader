@@ -20,10 +20,40 @@ Make sure that images folder exists in working directory.
 - python 3.6
 - requests : to download the image from the url
 
+#### Install
+```
+// Linux
+python3 -V // Ensure 3.6+
+pip3 -V // Ensure... pip3
+
+pip3 install selenium
+pip3 install webdriver_manager
+pip3 install requests
+pip3 install beautifulsoup4
+pip3 install lxml
+
+// Linux only
+sudo apt install chromium-chromedriver
+```
+
 ## Usage : 
 Make sure all the above mentioned libraries are installed. </br>
 python product_images_downloader.py  ( look the output images directory to get the idea !!)
 
+## Debugging :
+If you're a filthy degenerate hiding behind a proxy and the amazon captcha shows up, run the following
+
+> $ python3
+```
+from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get('https://www.amazon.in')
+// Solve the captcha
+exit()
+// Close the browser
+```
+
+That should stave off the bots for a few extra runs.
 ## Things to do :
 - Eliminate the images of sponsored products.
 - Extracting all the details of product (name, price, ratings) and storing in csv. 
